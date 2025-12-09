@@ -1,25 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>
-  window.wxOConfiguration = {
-    orchestrationID: "95f3b39ecb0a4fd7b5f71872005ef2f5_99155f47-ac2f-4206-b7c0-bcaf4e8f3838",
-    hostURL: "https://eu-gb.watson-orchestrate.cloud.ibm.com",
-    rootElementID: "root",
-    deploymentPlatform: "ibmcloud",
-    crn: "crn:v1:bluemix:public:watsonx-orchestrate:eu-gb:a/95f3b39ecb0a4fd7b5f71872005ef2f5:99155f47-ac2f-4206-b7c0-bcaf4e8f3838::",
-    chatOptions: {
-        agentId: "4898b9e8-bd50-4c0a-8ecb-50cabd14a6b3", 
-    }
-  };
-  setTimeout(function () {
-    const script = document.createElement('script');
-    script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
-    script.addEventListener('load', function () {
-        wxoLoader.init();
-    });
-    document.head.appendChild(script);
-  }, 0);                     
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BakerHicks Portfolio Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 20px;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 600px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .instructions {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .instructions h3 {
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        
+        .instructions ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .instructions li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        
+        .instructions li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+        }
+        
+        .hint {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">BakerHicks</div>
+        <div class="subtitle">Portfolio Performance Assistant</div>
+        
+        <div class="instructions">
+            <h3>Try asking:</h3>
+            <ul>
+                <li>"What's the WIP position on Overbury BIM?"</li>
+                <li>"Which projects have eroding contingency?"</li>
+                <li>"Show me gross margin trends for last 3 months"</li>
+                <li>"Which projects have overdue invoices?"</li>
+                <li>"Give me a portfolio overview"</li>
+            </ul>
+        </div>
+        
+        <p class="hint">Click the chat icon in the bottom right corner to start →</p>
+    </div>
+
+    <div id="root"></div>
+
+    <script>
+        // Calculate layout size
+        var popUpWidth = "" + (0.5 * document.documentElement.clientWidth) + "px";
+        var popUpHeight = "" + (0.75 * document.documentElement.clientHeight) + "px";
+        var layout = {
+            width: popUpWidth,
+            height: popUpHeight
+        };
+
+        window.wxOConfiguration = {
+            orchestrationID: "95f3b39ecb0a4fd7b5f71872005ef2f5_99155f47-ac2f-4206-b7c0-bcaf4e8f3838",
+            hostURL: "https://eu-gb.watson-orchestrate.cloud.ibm.com",
+            rootElementID: "root",
+            deploymentPlatform: "ibmcloud",
+            crn: "crn:v1:bluemix:public:watsonx-orchestrate:eu-gb:a/95f3b39ecb0a4fd7b5f71872005ef2f5:99155f47-ac2f-4206-b7c0-bcaf4e8f3838::",
+            chatOptions: {
+                agentId: "4898b9e8-bd50-4c0a-8ecb-50cabd14a6b3",
+            },
+            layout: layout
+        };
+
+        setTimeout(function () {
+            const script = document.createElement('script');
+            script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
+            script.addEventListener('load', function () {
+                wxoLoader.init();
+            });
+            document.head.appendChild(script);
+        }, 0);
+    </script>
 </body>
 </html>
