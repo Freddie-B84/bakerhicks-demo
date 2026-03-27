@@ -13,16 +13,30 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background-color: #0e1920;
+            background-image: url('bakerhicks-hero.png'); /* ← rename to match your file */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             min-height: 100vh;
             color: white;
             padding: 30px;
         }
-        
+
+        /* Dark overlay so the chat widget stays readable */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 0;
+        }
+
         .header {
             position: absolute;
             top: 30px;
             left: 30px;
+            z-index: 1;
         }
         
         .logo {
@@ -31,9 +45,13 @@
         
         .subtitle {
             font-size: 1rem;
-            opacity: 0.8;
             margin-top: 8px;
-            color: #f4a01c;
+            color: #c8e63c; /* ← BakerHicks lime green (from the dots in the image) */
+        }
+
+        #root {
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
