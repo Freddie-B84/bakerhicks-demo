@@ -13,7 +13,7 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            background-color: #0e1920;
             min-height: 100vh;
             color: white;
             padding: 30px;
@@ -26,26 +26,23 @@
         }
         
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -1px;
+            height: 40px;
         }
         
         .subtitle {
             font-size: 1rem;
             opacity: 0.8;
-            margin-top: 4px;
+            margin-top: 8px;
+            color: #f4a01c;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="logo">BakerHicks</div>
+        <img src="https://bakerhicks.com/visuals/bakerhicks-logo-white.png" alt="BakerHicks" class="logo" />
         <div class="subtitle">Portfolio Performance Assistant</div>
     </div>
-
     <div id="root"></div>
-
     <script>
         var popUpWidth = "" + (0.5 * document.documentElement.clientWidth) + "px";
         var popUpHeight = "" + (0.75 * document.documentElement.clientHeight) + "px";
@@ -53,7 +50,6 @@
             width: popUpWidth,
             height: popUpHeight
         };
-
         window.wxOConfiguration = {
             orchestrationID: "95f3b39ecb0a4fd7b5f71872005ef2f5_99155f47-ac2f-4206-b7c0-bcaf4e8f3838",
             hostURL: "https://eu-gb.watson-orchestrate.cloud.ibm.com",
@@ -65,7 +61,6 @@
             },
             layout: layout
         };
-
         setTimeout(function () {
             const script = document.createElement('script');
             script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
